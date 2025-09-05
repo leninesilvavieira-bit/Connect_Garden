@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dispositivo Inteligente de Apoio Emocional</title>
+  <style>
+    :root{
+      --bg: #cfe8ff;          /* azul claro para boa leitura */
+      --text: #000000;        /* letras pretas */
+      --card: #e7f1ff;        /* variação do azul para cartões */
+      --accent: #ffffff;      /* elementos neutros/brancos */
+      --border: #9ec5fe;      /* bordas suaves */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+    }
+    a{color: inherit; text-decoration: none;}
+    .container{width:min(1100px, 92%); margin-inline:auto}
+    header{
+      position:sticky; top:0; z-index:10;
+      background: rgba(207,232,255,0.9);
+      backdrop-filter: saturate(140%) blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{font-weight:800; letter-spacing:.3px}
+    nav ul{display:flex; gap:16px; list-style:none; margin:0; padding:0}
+    nav a{padding:8px 10px; border-radius:10px; border:1px solid transparent}
+    nav a:hover{border-color:var(--border); background:var(--card)}
+
+    .hero{padding:56px 0 32px}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px}
+    .badge{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:var(--card); font-size:14px}
+    h1{font-size: clamp(28px, 4vw, 46px); line-height:1.1; margin:10px 0 12px}
+    p.lead{font-size: clamp(16px, 2.2vw, 20px); margin:0 0 18px}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+    }
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns: repeat(auto-fit, minmax(220px,1fr))}
+    .grid.cols-2{grid-template-columns: repeat(auto-fit, minmax(260px,1fr))}
+    h2{font-size: clamp(22px, 3vw, 32px); margin:8px 0 6px}
+    h3{font-size: clamp(18px, 2.2vw, 22px); margin:6px 0}
+    ul{padding-left:18px}
+
+    .button{display:inline-block; background:var(--accent); color:var(--text); border:1px solid var(--border); padding:10px 14px; border-radius:12px; font-weight:600}
+    .button:hover{filter: brightness(0.98)}
+
+    .section{padding:36px 0}
+    .muted{opacity:.8}
+
+    /* Exercício de respiração */
+    .breath-wrap{display:grid; grid-template-columns: 1fr; gap:16px; align-items:center}
+    .circle{
+      width: 160px; height:160px; margin:auto; border-radius:50%;
+      border:2px solid var(--text); background:var(--accent);
+      display:grid; place-items:center; font-weight:800;
+      transition: transform 4s ease-in-out;
+    }
+    .controls{display:flex; gap:12px; flex-wrap:wrap}
+    .progress{height:8px; background:var(--accent); border:1px solid var(--border); border-radius:999px; overflow:hidden}
+    .bar{height:100%; width:0%; background:var(--text)}
+
+    footer{padding:28px 0 48px; border-top:1px solid var(--border); margin-top:24px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Dispositivo Inteligente de Apoio Emocional</div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#respiracao">Respiração</a></li>
+          <li><a href="#especificacoes">Especificações</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge" aria-label="Tecnologia em função do bem-estar">💙 Tecnologia em função do bem‑estar</span>
+          <h1>Mais segurança emocional no seu dia a dia</h1>
+          <p class="lead">O dispositivo monitora sinais como batimentos acelerados e pressão alta. Ao detectar alterações, envia uma vibração discreta, orienta exercícios de respiração e ativa luzes calmantes. Em emergências, pode acionar um contato pré‑definido.</p>
+          <div class="controls" style="margin-top:10px">
+            <a class="button" href="#funcionalidades">Conheça as funções</a>
+            <a class="button" href="#respiracao">Experimente a respiração</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Como funciona</h3>
+          <ul>
+            <li>Detecta sinais fisiológicos (ex.: batimentos, pressão).</li>
+            <li>Alerta por vibração discreta no pulso.</li>
+            <li>Guia uma sequência de respiração 4‑4‑6.</li>
+            <li>Emite luzes relaxantes para ajudar a acalmar.</li>
+            <li>Aciona um contato de emergência, se necessário.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Sobre o dispositivo</h2>
+          <p>O <strong>Dispositivo Inteligente de Apoio Emocional</strong> nasceu com o objetivo de apoiar pessoas que convivem com ansiedade. Ele combina sensores, software e design de uso diário (ex.: bracelete) para oferecer <em>alerta precoce</em> e <em>técnicas de autorregulação</em> no momento em que você mais precisa.</p>
+          <p class="muted">É tecnologia a favor da sua saúde mental, do seu bem‑estar e do seu autocuidado.</p>
+        </div>
+        <div class="card">
+          <h3>Benefícios</h3>
+          <ul>
+            <li>Consciência corporal em tempo real.</li>
+            <li>Intervenções simples e guiadas (respiração, luzes).</li>
+            <li>Maior sensação de segurança no cotidiano.</li>
+            <li>Possibilidade de suporte imediato via contato de emergência.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="funcionalidades" class="section">
+      <div class="container">
+        <h2>Funcionalidades</h2>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Monitoramento de sinais</h3>
+            <p>Leitura contínua de indicadores fisiológicos (batimentos e pressão) para identificar alterações típicas de ansiedade.</p>
+          </article>
+          <article class="card">
+            <h3>Alerta por vibração</h3>
+            <p>Um aviso tátil, discreto e imediato, para você agir com calma e autonomia.</p>
+          </article>
+          <article class="card">
+            <h3>Luzes calmantes</h3>
+            <p>Leds com padrão suave ajudam a reduzir a agitação e a focar na respiração.</p>
+          </article>
+          <article class="card">
+            <h3>Respiração guiada</h3>
+            <p>Sequências simples (ex.: 4–4–6) para ativar o sistema parassimpático e aliviar a tensão.</p>
+          </article>
+          <article class="card">
+            <h3>Emergência</h3>
+            <p>Opção de registrar um contato que será acionado em situações necessárias.</p>
+          </article>
+          <article class="card">
+            <h3>Uso diário</h3>
+            <p>Design confortável para acompanhar você na rotina, como um bracelete.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="respiracao" class="section">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Exercício de respiração 4‑4‑6</h2>
+          <p class="muted">Inspire por 4s • Segure por 4s • Expire por 6s. Repita algumas vezes, com postura confortável e ombros relaxados.</p>
+          <div class="breath-wrap card">
+            <div class="circle" id="circle" aria-live="polite">Pronto</div>
+            <div id="prompt" style="text-align:center; font-weight:700">Clique em Iniciar</div>
+            <div class="controls">
+              <button class="button" id="start">Iniciar</button>
+              <button class="button" id="stop">Parar</button>
+            </div>
+            <div class="progress"><div class="bar" id="bar"></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Dicas rápidas</h3>
+          <ul>
+            <li>Respire pelo nariz e solte pela boca suavemente.</li>
+            <li>Se preferir, feche os olhos e acompanhe o ritmo do círculo.</li>
+            <li>Interrompa se sentir qualquer desconforto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="especificacoes" class="section">
+      <div class="container">
+        <h2>Especificações e componentes</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Componentes principais (protótipo)</h3>
+            <ul>
+              <li>Arduino Nano ou similar</li>
+              <li>Sensor de batimentos cardíacos</li>
+              <li>Display LCD 16x2</li>
+              <li>4 LEDs + resistores (220 Ω)</li>
+              <li>Pulseira para uso no pulso</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Objetivos do projeto</h3>
+            <ul>
+              <li>Detectar sinais fisiológicos ligados à ansiedade.</li>
+              <li>Fornecer alertas e intervenções calmantes.</li>
+              <li>Desenvolver software e site de instruções.</li>
+              <li>Testar e ajustar para uso cotidiano.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipe" class="section">
+      <div class="container">
+        <h2>Equipe</h2>
+        <div class="grid cols-3">
+          <div class="card"><h3>Clara Maria Silva Silveira</h3><p class="muted">Criativa • Comunicativa • Organizada</p></div>
+          <div class="card"><h3>Davi da Silva Costa</h3><p class="muted">Criativo • Autêntico • Acolhedor</p></div>
+          <div class="card"><h3>Kayra Nicolly Corral de Sousa</h3><p class="muted">Criativa • Sincera • Leal</p></div>
+          <div class="card"><h3>Lenine Silva Vieira</h3><p class="muted">Focado • Responsável • Esportista</p></div>
+          <div class="card"><h3>Tiago Alves Monteiro</h3><p class="muted">Prestativo • Alegre • Humilde</p></div>
+          <div class="card"><h3>Vitor Augusto Silva Leite</h3><p class="muted">Estudioso • Cooperativo • Criativo</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="container grid cols-2">
+        <div>
+          <h2>Contato</h2>
+          <p>Para dúvidas, sugestões ou parcerias, entre em contato com a equipe do projeto.</p>
+          <form class="card" onsubmit="event.preventDefault(); alert('Mensagem enviada!');">
+            <label>Nome<br><input required style="width:100%; padding:10px; border-radius:10px; border:1px solid var(--border); background:var(--accent); color:var(--text)"></label>
+            <br><br>
+            <label>E-mail<br><input type="email" required style="width:100%; padding:10px; border-radius:10px; border:1px solid var(--border); background:var(--accent); color:var(--text)"></label>
+            <br><br>
+            <label>Mensagem<br><textarea required rows="4" style="width:100%; padding:10px; border-radius:10px; border:1px solid var(--border); background:var(--accent); color:var(--text)"></textarea></label>
+            <br><br>
+            <button class="button" type="submit">Enviar</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Contato de emergência</h3>
+          <p class="muted">No produto final, o usuário poderá cadastrar um contato para ser acionado em situações específicas. Neste site de demonstração, mostramos apenas a ideia de fluxo.</p>
+          <ol>
+            <li>Usuário cadastra um contato confiável.</li>
+            <li>Dispositivo detecta sinais atípicos.</li>
+            <li>Se necessário, aciona o contato com mensagem predefinida.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="muted">&copy; <span id="year"></span> Dispositivo Inteligente de Apoio Emocional — Projeto educacional. Fundo azul, letras pretas, acessível e responsivo.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lógica simples de respiração 4-4-6
+    const circle = document.getElementById('circle');
+    const promptEl = document.getElementById('prompt');
+    const bar = document.getElementById('bar');
+    const startBtn = document.getElementById('start');
+    const stopBtn = document.getElementById('stop');
+
+    let running = false, cycleTimer, progressTimer, t = 0;
+
+    function setPrompt(text){ promptEl.textContent = text; }
+
+    function animateProgress(totalMs){
+      const start = Date.now();
+      clearInterval(progressTimer);
+      progressTimer = setInterval(()=>{
+        const elapsed = Date.now() - start;
+        const pct = Math.min(100, (elapsed/totalMs)*100);
+        bar.style.width = pct + '%';
+        if(pct>=100){ clearInterval(progressTimer); }
+      }, 50);
+    }
+
+    function scaleTo(s){ circle.style.transform = `scale(${s})`; }
+
+    function runCycle(){
+      if(!running) return;
+      // Inspire 4s
+      setPrompt('Inspire — 4s');
+      circle.textContent = 'Inspire';
+      scaleTo(1.2);
+      animateProgress(4000);
+      cycleTimer = setTimeout(()=>{
+        if(!running) return;
+        // Segure 4s
+        setPrompt('Segure — 4s');
+        circle.textContent = 'Segure';
+        scaleTo(1.25);
+        animateProgress(4000);
+        cycleTimer = setTimeout(()=>{
+          if(!running) return;
+          // Expire 6s
+          setPrompt('Expire — 6s');
+          circle.textContent = 'Expire';
+          scaleTo(1.0);
+          animateProgress(6000);
+          cycleTimer = setTimeout(runCycle, 6000);
+        }, 4000);
+      }, 4000);
+    }
+
+    startBtn.addEventListener('click', ()=>{
+      if(running) return;
+      running = true;
+      bar.style.width = '0%';
+      runCycle();
+    });
+    stopBtn.addEventListener('click', ()=>{
+      running = false;
+      clearTimeout(cycleTimer);
+      clearInterval(progressTimer);
+      circle.textContent = 'Pronto';
+      setPrompt('Clique em Iniciar');
+      bar.style.width = '0%';
+      scaleTo(1.0);
+    });
+  </script>
+</body>
+</html>
